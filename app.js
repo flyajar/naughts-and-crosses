@@ -33,7 +33,6 @@ function handleClick(i) {
 function checkWinner(nextPlayer) {
   for (let i = 0; i < winningCombinations.length; i++) {
     const [firstIndex, secondIndex, thirdIndex] = winningCombinations[i]
-    console.log(board[firstIndex], board[secondIndex], board[thirdIndex])
     let winnerCondition = (board[firstIndex] && board[firstIndex] === board[secondIndex]) &&
       (board[firstIndex] === board[thirdIndex]);
     //determine winner
