@@ -35,13 +35,14 @@ function checkWinner(nextPlayer) {
     const [firstIndex, secondIndex, thirdIndex] = winningCombinations[i]
     let winnerCondition = (board[firstIndex] && board[firstIndex] === board[secondIndex]) &&
       (board[firstIndex] === board[thirdIndex]);
+    let drawCondition = board.every(item => item !== null)
     //determine winner
     if (winnerCondition) {
       roundWon = !roundWon
       document.querySelectorAll('.box').forEach(box => box.style.pointerEvents = 'none')
       document.getElementById('gameResult').innerHTML = 'Player won: ' + player
       nextPlayer.style.display = "none"
-    } else if (winnerCondition && board.every(item => item !== null)) { //determine draw
+    } else if (winnerCondition && drawCondition || drawCondition) { //determine draw
       document.getElementById('gameResult').innerHTML = 'Game result: draw'
       nextPlayer.style.display = "none"
     }
